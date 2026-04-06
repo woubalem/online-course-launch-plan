@@ -1,0 +1,1757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Online Course Launch Plan</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F7F3EE;
+    --ink: #1A1714;
+    --ink-light: #3D3830;
+    --warm-gray: #8C8478;
+    --rule: #D9D2C8;
+    --phase1: #2D4A3E;
+    --phase1-light: #E8F0EC;
+    --phase1-accent: #4A8C6F;
+    --phase2: #2A3A5C;
+    --phase2-light: #E6ECF5;
+    --phase2-accent: #4A6FA8;
+    --phase3: #5C2A2A;
+    --phase3-light: #F5E6E6;
+    --phase3-accent: #A84A4A;
+    --gold: #C9963A;
+    --gold-light: #FBF3E4;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.6;
+  }
+
+  /* ── COVER ── */
+  .cover {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 72px;
+    position: relative;
+    overflow: hidden;
+    background: var(--ink);
+  }
+
+  .cover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse 80% 60% at 110% 50%, rgba(45,74,62,0.6) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 80% at -10% 80%, rgba(42,58,92,0.4) 0%, transparent 60%);
+  }
+
+  .cover-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 32px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .cover-eyebrow::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .cover-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(52px, 7vw, 96px);
+    font-weight: 900;
+    color: #F7F3EE;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+    position: relative;
+  }
+
+  .cover-title span {
+    display: block;
+    color: var(--gold);
+  }
+
+  .cover-subtitle {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(18px, 2.5vw, 28px);
+    font-weight: 400;
+    font-style: italic;
+    color: rgba(247,243,238,0.6);
+    margin-bottom: 64px;
+    position: relative;
+  }
+
+  .cover-phases {
+    display: flex;
+    gap: 2px;
+    position: relative;
+    margin-bottom: 64px;
+  }
+
+  .cover-phase {
+    flex: 1;
+    padding: 20px 24px;
+  }
+
+  .cover-phase:nth-child(1) { background: var(--phase1); }
+  .cover-phase:nth-child(2) { background: var(--phase2); }
+  .cover-phase:nth-child(3) { background: var(--phase3); }
+
+  .cover-phase-days {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 6px;
+  }
+
+  .cover-phase-label {
+    font-size: 15px;
+    font-weight: 500;
+    color: #fff;
+  }
+
+  .cover-meta {
+    position: relative;
+    display: flex;
+    gap: 40px;
+  }
+
+  .cover-meta-item { }
+
+  .cover-meta-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(247,243,238,0.35);
+    margin-bottom: 4px;
+  }
+
+  .cover-meta-value {
+    font-size: 13px;
+    color: rgba(247,243,238,0.7);
+  }
+
+  /* ── LAYOUT ── */
+  .page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 72px;
+  }
+
+  /* ── FUNNEL SECTION ── */
+  .funnel-section {
+    padding: 80px 72px;
+    background: var(--ink);
+    color: var(--cream);
+  }
+
+  .section-header {
+    margin-bottom: 56px;
+  }
+
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .section-title.light { color: var(--cream); }
+  .section-title.dark { color: var(--ink); }
+
+  .funnel-flow {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    align-items: stretch;
+  }
+
+  .funnel-step {
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .funnel-step:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: var(--warm-gray);
+    z-index: 1;
+  }
+
+  .funnel-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    font-size: 22px;
+  }
+
+  .funnel-step-name {
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--cream);
+    margin-bottom: 6px;
+  }
+
+  .funnel-step-tool {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--warm-gray);
+    letter-spacing: 0.05em;
+  }
+
+  /* ── PHASE SECTIONS ── */
+  .phase-section {
+    padding: 80px 72px;
+  }
+
+  .phase-section.p1 { background: var(--cream); }
+  .phase-section.p2 { background: #F0F4F8; }
+  .phase-section.p3 { background: #FAF0F0; }
+
+  .phase-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 20px;
+    border-radius: 40px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+    margin-bottom: 24px;
+  }
+
+  .p1 .phase-badge { background: var(--phase1); color: #fff; }
+  .p2 .phase-badge { background: var(--phase2); color: #fff; }
+  .p3 .phase-badge { background: var(--phase3); color: #fff; }
+
+  .phase-objective {
+    font-size: 16px;
+    color: var(--warm-gray);
+    margin-top: 12px;
+    font-style: italic;
+  }
+
+  /* ── PILLAR GRID ── */
+  .pillar-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin-top: 48px;
+  }
+
+  .pillar-card {
+    background: #fff;
+    padding: 32px;
+    transition: background 0.2s;
+  }
+
+  .p1 .pillar-card { background: var(--cream); }
+  .p2 .pillar-card { background: #F0F4F8; }
+  .p3 .pillar-card { background: #FAF0F0; }
+
+  .p1 .pillar-card:hover { background: var(--phase1-light); }
+  .p2 .pillar-card:hover { background: var(--phase2-light); }
+  .p3 .pillar-card:hover { background: var(--phase3-light); }
+
+  .pillar-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 12px;
+    opacity: 0.12;
+  }
+
+  .p1 .pillar-number { color: var(--phase1); }
+  .p2 .pillar-number { color: var(--phase2); }
+  .p3 .pillar-number { color: var(--phase3); }
+
+  .pillar-name {
+    font-weight: 500;
+    font-size: 16px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .new-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    padding: 2px 8px;
+    border-radius: 20px;
+    background: var(--gold);
+    color: #fff;
+    text-transform: uppercase;
+  }
+
+  .pillar-items {
+    list-style: none;
+    border-top: 1px solid var(--rule);
+  }
+
+  .pillar-items li {
+    padding: 10px 0;
+    font-size: 13.5px;
+    color: var(--ink-light);
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.4;
+  }
+
+  .pillar-items li::before {
+    content: '—';
+    color: var(--rule);
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .pillar-items li.highlight {
+    font-weight: 500;
+  }
+
+  .p1 .pillar-items li.highlight { color: var(--phase1); }
+  .p2 .pillar-items li.highlight { color: var(--phase2); }
+  .p3 .pillar-items li.highlight { color: var(--phase3); }
+
+  /* ── SEQUENCE CARDS ── */
+  .sequence-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-top: 48px;
+  }
+
+  .sequence-card {
+    background: var(--cream);
+    padding: 32px;
+    border: 1px solid var(--rule);
+  }
+
+  .sequence-card.full { grid-column: 1 / -1; }
+
+  .sequence-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .sequence-sub {
+    font-size: 12px;
+    color: var(--warm-gray);
+    margin-bottom: 24px;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.05em;
+  }
+
+  .email-list, .sms-list {
+    list-style: none;
+  }
+
+  .email-item {
+    display: flex;
+    gap: 16px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--rule);
+    align-items: flex-start;
+  }
+
+  .email-item:last-child { border-bottom: none; }
+
+  .email-day {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--warm-gray);
+    flex-shrink: 0;
+    width: 36px;
+    margin-top: 3px;
+  }
+
+  .email-content {}
+
+  .email-subject {
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 3px;
+  }
+
+  .email-desc {
+    font-size: 12px;
+    color: var(--warm-gray);
+  }
+
+  .sms-item {
+    display: flex;
+    gap: 16px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--rule);
+    align-items: flex-start;
+  }
+
+  .sms-item:last-child { border-bottom: none; }
+
+  .sms-timing {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.05em;
+    color: var(--warm-gray);
+    flex-shrink: 0;
+    width: 60px;
+    margin-top: 3px;
+  }
+
+  .sms-text {
+    font-size: 13px;
+    color: var(--ink-light);
+    background: var(--rule);
+    padding: 8px 12px;
+    border-radius: 0 12px 12px 12px;
+    flex: 1;
+  }
+
+  /* ── WEBINAR SECTION ── */
+  .webinar-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--rule);
+    margin-top: 32px;
+    overflow: hidden;
+  }
+
+  .webinar-step {
+    display: flex;
+    align-items: stretch;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .webinar-step:last-child { border-bottom: none; }
+
+  .webinar-time {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--warm-gray);
+    padding: 20px 24px;
+    border-right: 1px solid var(--rule);
+    flex-shrink: 0;
+    width: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--cream);
+  }
+
+  .webinar-content {
+    padding: 20px 24px;
+    flex: 1;
+    background: #fff;
+  }
+
+  .webinar-step-name {
+    font-weight: 500;
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+
+  .webinar-step-desc {
+    font-size: 12.5px;
+    color: var(--warm-gray);
+  }
+
+  .webinar-bar {
+    width: 4px;
+    flex-shrink: 0;
+  }
+
+  /* ── TECH STACK ── */
+  .tech-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin-top: 48px;
+  }
+
+  .tech-card {
+    padding: 32px 28px;
+    background: var(--ink);
+    text-align: center;
+  }
+
+  .tech-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+
+  .tech-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--cream);
+    margin-bottom: 8px;
+  }
+
+  .tech-role {
+    font-size: 12px;
+    color: var(--warm-gray);
+    margin-bottom: 20px;
+    min-height: 36px;
+  }
+
+  .tech-features {
+    list-style: none;
+    text-align: left;
+  }
+
+  .tech-features li {
+    font-size: 11.5px;
+    color: rgba(247,243,238,0.6);
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    display: flex;
+    gap: 8px;
+  }
+
+  .tech-features li::before {
+    content: '·';
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+
+  .tech-features li:last-child { border-bottom: none; }
+
+  /* ── METRICS ── */
+  .metrics-section {
+    background: var(--ink);
+    padding: 80px 72px;
+  }
+
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.08);
+    margin-top: 48px;
+  }
+
+  .metric-card {
+    padding: 40px 32px;
+    background: var(--ink);
+    text-align: center;
+  }
+
+  .metric-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .metric-label {
+    font-size: 13px;
+    color: rgba(247,243,238,0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+  }
+
+  /* ── STRATEGY NOTES ── */
+  .strategy-section {
+    padding: 80px 72px;
+    background: var(--cream);
+  }
+
+  .strategy-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 48px;
+  }
+
+  .strategy-card {
+    border-top: 3px solid var(--ink);
+    padding-top: 24px;
+  }
+
+  .strategy-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 64px;
+    font-weight: 900;
+    color: var(--rule);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .strategy-title {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+
+  .strategy-body {
+    font-size: 13.5px;
+    color: var(--warm-gray);
+    line-height: 1.7;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: var(--ink);
+    padding: 48px 72px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .footer-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--gold);
+  }
+
+  .footer-note {
+    font-size: 12px;
+    color: var(--warm-gray);
+    font-family: 'DM Mono', monospace;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    height: 1px;
+    background: var(--rule);
+    margin: 48px 0;
+  }
+
+  /* ── HIGHLIGHT BOX ── */
+  .highlight-box {
+    border-left: 3px solid var(--gold);
+    padding: 20px 24px;
+    background: var(--gold-light);
+    margin: 32px 0;
+  }
+
+  .highlight-box p {
+    font-size: 14px;
+    color: var(--ink-light);
+    font-style: italic;
+  }
+
+  .highlight-box strong {
+    color: var(--ink);
+    font-style: normal;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .cover, .page, .phase-section, .funnel-section, .metrics-section, .strategy-section, .footer {
+      padding-left: 32px;
+      padding-right: 32px;
+    }
+    .pillar-grid { grid-template-columns: 1fr 1fr; }
+    .tech-grid { grid-template-columns: 1fr 1fr; }
+    .metrics-grid { grid-template-columns: 1fr 1fr; }
+    .strategy-grid { grid-template-columns: 1fr 1fr; }
+    .funnel-flow { grid-template-columns: 1fr; }
+    .funnel-step:not(:last-child)::after { content: '↓'; position: static; margin: 8px auto; display: block; }
+    .sequence-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 600px) {
+    .cover, .page, .phase-section, .funnel-section, .metrics-section, .strategy-section, .footer {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    .pillar-grid { grid-template-columns: 1fr; }
+    .tech-grid { grid-template-columns: 1fr; }
+    .metrics-grid { grid-template-columns: 1fr 1fr; }
+    .strategy-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── GLOSSARY ── */
+  .glossary-section {
+    padding: 80px 72px;
+    background: var(--ink);
+  }
+
+  .glossary-intro {
+    font-size: 15px;
+    color: rgba(247,243,238,0.5);
+    max-width: 560px;
+    margin-top: 16px;
+    line-height: 1.7;
+  }
+
+  .glossary-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.07);
+    margin-top: 48px;
+  }
+
+  .glossary-item {
+    background: var(--ink);
+    padding: 32px 36px;
+    transition: background 0.2s;
+    position: relative;
+  }
+
+  .glossary-item:hover {
+    background: rgba(255,255,255,0.03);
+  }
+
+  .glossary-term {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+
+  .glossary-abbr {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: rgba(247,243,238,0.3);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    display: block;
+  }
+
+  .glossary-def {
+    font-size: 14px;
+    color: rgba(247,243,238,0.65);
+    line-height: 1.75;
+    margin-bottom: 14px;
+  }
+
+  .glossary-tip {
+    font-size: 12.5px;
+    color: var(--gold);
+    padding: 10px 14px;
+    border-left: 2px solid var(--gold);
+    background: rgba(201,150,58,0.08);
+    line-height: 1.6;
+  }
+
+  .glossary-tip strong {
+    font-weight: 500;
+  }
+
+  /* ── PRINT / PDF ── */
+  @media print {
+    .cover { min-height: auto; page-break-after: always; }
+    .phase-section { page-break-before: always; }
+  }
+
+  @media (max-width: 900px) {
+    .glossary-grid { grid-template-columns: 1fr; }
+    .glossary-section { padding-left: 32px; padding-right: 32px; }
+  }
+
+  @media (max-width: 600px) {
+    .glossary-section { padding-left: 24px; padding-right: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     COVER
+══════════════════════════════════════════ -->
+<section class="cover">
+  <div class="cover-eyebrow">Online Course Launch System</div>
+  <h1 class="cover-title">
+    30 · 60 · 90<br>
+    <span>Launch Plan</span>
+  </h1>
+  <p class="cover-subtitle">From idea to automated income in 90 days</p>
+
+  <div class="cover-phases">
+    <div class="cover-phase">
+      <div class="cover-phase-days">Days 1–30</div>
+      <div class="cover-phase-label">Foundation + Build</div>
+    </div>
+    <div class="cover-phase">
+      <div class="cover-phase-days">Days 31–60</div>
+      <div class="cover-phase-label">Audience + Pre-launch</div>
+    </div>
+    <div class="cover-phase">
+      <div class="cover-phase-days">Days 61–90</div>
+      <div class="cover-phase-label">Launch + Scale</div>
+    </div>
+  </div>
+
+  <div class="cover-meta">
+    <div class="cover-meta-item">
+      <div class="cover-meta-label">Tech Stack</div>
+      <div class="cover-meta-value">Thinkific · ActiveCampaign · WebinarJam · Twilio</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="cover-meta-label">Deliverable</div>
+      <div class="cover-meta-value">High-converting evergreen course funnel</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     THE SALES FUNNEL
+══════════════════════════════════════════ -->
+<section class="funnel-section">
+  <div style="max-width: 1100px; margin: 0 auto;">
+    <div class="section-header">
+      <div class="section-label">Architecture</div>
+      <h2 class="section-title light">The Core Sales Funnel</h2>
+    </div>
+
+    <div class="funnel-flow">
+      <div class="funnel-step">
+        <div class="funnel-icon" style="background: rgba(201,150,58,0.15);">🎯</div>
+        <div class="funnel-step-name">Landing Page</div>
+        <div class="funnel-step-tool">Webinar Registration</div>
+      </div>
+      <div class="funnel-step">
+        <div class="funnel-icon" style="background: rgba(45,74,62,0.4);">📡</div>
+        <div class="funnel-step-name">Live Webinar</div>
+        <div class="funnel-step-tool">WebinarJam</div>
+      </div>
+      <div class="funnel-step">
+        <div class="funnel-icon" style="background: rgba(42,58,92,0.4);">💳</div>
+        <div class="funnel-step-name">Offer + Checkout</div>
+        <div class="funnel-step-tool">Thinkific</div>
+      </div>
+      <div class="funnel-step">
+        <div class="funnel-icon" style="background: rgba(92,42,42,0.4);">✉️</div>
+        <div class="funnel-step-name">Nurture Sequences</div>
+        <div class="funnel-step-tool">AC + Twilio SMS</div>
+      </div>
+      <div class="funnel-step">
+        <div class="funnel-icon" style="background: rgba(201,150,58,0.15);">🎓</div>
+        <div class="funnel-step-name">Course Delivery</div>
+        <div class="funnel-step-tool">Thinkific</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     PHASE 1
+══════════════════════════════════════════ -->
+<section class="phase-section p1">
+  <div style="max-width: 1100px; margin: 0 auto;">
+    <div class="phase-badge">Days 1–30</div>
+    <div class="section-header">
+      <div class="section-label" style="color: var(--phase1-accent);">
+        <span style="background: var(--phase1-accent);"></span>
+        Phase One
+      </div>
+      <h2 class="section-title dark">Foundation + Build</h2>
+      <p class="phase-objective">Build the product, messaging, and infrastructure — validate before you record.</p>
+    </div>
+
+    <div class="highlight-box">
+      <p><strong>The #1 mistake coaches make:</strong> Recording 40 hours of content before confirming anyone wants to buy it. Spend your first 7 days validating demand through direct conversations, then build with confidence.</p>
+    </div>
+
+    <div class="pillar-grid">
+
+      <!-- Validate First -->
+      <div class="pillar-card">
+        <div class="pillar-number">01</div>
+        <div class="pillar-name">Validate First <span class="new-tag">Critical</span></div>
+        <ul class="pillar-items">
+          <li class="highlight">Send 10+ DMs: "Would you pay $X for Y?"</li>
+          <li class="highlight">Open a beta waitlist before recording anything</li>
+          <li>Define your transformation: clear before → after</li>
+          <li>Write your ideal customer profile (age, situation, pain)</li>
+          <li>Confirm your core promise and measurable outcomes</li>
+          <li>Pre-sell to 3–5 people at a founding member discount</li>
+        </ul>
+      </div>
+
+      <!-- Product Development -->
+      <div class="pillar-card">
+        <div class="pillar-number">02</div>
+        <div class="pillar-name">Product Development</div>
+        <ul class="pillar-items">
+          <li>Map full course outline: modules, lessons, deliverables</li>
+          <li class="highlight">Record 30–50% of content (enough to sell confidently)</li>
+          <li>Upload initial modules to Thinkific</li>
+          <li>Build student-facing workbooks or templates for each module</li>
+          <li>Create completion checklists per lesson</li>
+          <li>Plan 2–3 live Q&A calls to include as a bonus</li>
+        </ul>
+      </div>
+
+      <!-- Offer & Pricing -->
+      <div class="pillar-card">
+        <div class="pillar-number">03</div>
+        <div class="pillar-name">Offer & Pricing Strategy</div>
+        <ul class="pillar-items">
+          <li>Choose price point ($297–$997 depending on depth)</li>
+          <li class="highlight">Build bonus stack: templates, live calls, community</li>
+          <li>Add urgency lever: cohort start date or limited-time bonus</li>
+          <li class="highlight">Design checkout page with bump offer + guarantee</li>
+          <li>Place testimonials and key results above the fold</li>
+          <li>Write a strong, specific guarantee (30 or 60 day)</li>
+        </ul>
+      </div>
+
+      <!-- ActiveCampaign Setup -->
+      <div class="pillar-card">
+        <div class="pillar-number">04</div>
+        <div class="pillar-name">ActiveCampaign Setup</div>
+        <ul class="pillar-items">
+          <li>Create lists + tags: Lead, Registered, Attended, No-show, Purchased</li>
+          <li>Build webinar registration confirmation automation</li>
+          <li>Build pre-webinar reminder email sequence (3 emails)</li>
+          <li>Build post-webinar sales sequence (7–10 emails)</li>
+          <li>Set up post-purchase welcome + onboarding automation</li>
+          <li class="highlight">Connect Thinkific → AC for purchase tagging</li>
+        </ul>
+      </div>
+
+      <!-- WebinarJam Setup -->
+      <div class="pillar-card">
+        <div class="pillar-number">05</div>
+        <div class="pillar-name">WebinarJam Setup</div>
+        <ul class="pillar-items">
+          <li>Create webinar event with compelling outcome-driven title</li>
+          <li>Configure registration page or integrate with landing page</li>
+          <li>Set up backup reminder emails inside WebinarJam</li>
+          <li>Prepare on-screen offer slide and chat poll triggers</li>
+          <li>Set up replay page for no-show follow-up</li>
+          <li>Configure just-in-time webinar dates for evergreen later</li>
+        </ul>
+      </div>
+
+      <!-- SMS + Thinkific -->
+      <div class="pillar-card">
+        <div class="pillar-number">06</div>
+        <div class="pillar-name">SMS + Thinkific Onboarding</div>
+        <ul class="pillar-items">
+          <li>Integrate Twilio with ActiveCampaign via Zapier or native</li>
+          <li>Build webinar reminder texts: 24hr · 1hr · 10min before</li>
+          <li>Build cart-closing SMS reminder for launch week</li>
+          <li class="highlight">Write 5-minute post-purchase welcome SMS (reduces refunds)</li>
+          <li class="highlight">Build Thinkific onboarding sequence: welcome video + quick win lesson</li>
+          <li>Set up progress milestone emails inside Thinkific</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Webinar Script -->
+    <div class="sequence-grid" style="margin-top: 48px;">
+      <div class="sequence-card full" style="background: var(--phase1-light); border-color: var(--phase1-accent);">
+        <div class="sequence-title">Webinar Script Structure</div>
+        <div class="sequence-sub">Recommended timing for a 60-minute conversion webinar</div>
+        <div class="webinar-flow">
+          <div class="webinar-step">
+            <div class="webinar-bar" style="background: var(--phase1-accent);"></div>
+            <div class="webinar-time">0–5 min</div>
+            <div class="webinar-content">
+              <div class="webinar-step-name">Hook + Pattern Interrupt</div>
+              <div class="webinar-step-desc">Open with a bold statement or counterintuitive truth. Preview the transformation they'll get today. "By the end of this, you'll know exactly how to [result] — even if [common objection]."</div>
+            </div>
+          </div>
+          <div class="webinar-step">
+            <div class="webinar-bar" style="background: var(--phase1-accent);"></div>
+            <div class="webinar-time">5–12 min</div>
+            <div class="webinar-content">
+              <div class="webinar-step-name">Credibility + Your Story</div>
+              <div class="webinar-step-desc">Why you, why now. Share your journey without over-explaining. Make it about them: "I struggled with this too, then I discovered…" End with a student success story or result.</div>
+            </div>
+          </div>
+          <div class="webinar-step">
+            <div class="webinar-bar" style="background: var(--phase1-accent);"></div>
+            <div class="webinar-time">12–40 min</div>
+            <div class="webinar-content">
+              <div class="webinar-step-name">3 Core Teaching Points</div>
+              <div class="webinar-step-desc">Teach genuine value — real insights, not fluff. Each point should stand alone as useful, but leave them wanting the full system. Structure: Problem → Insight → Example → Mini-result.</div>
+            </div>
+          </div>
+          <div class="webinar-step">
+            <div class="webinar-bar" style="background: var(--gold);"></div>
+            <div class="webinar-time">40–50 min</div>
+            <div class="webinar-content">
+              <div class="webinar-step-name">Transition to Offer (Practice This Most)</div>
+              <div class="webinar-step-desc">Natural bridge: "What I just taught you is a fraction of what's inside [course name]." Reveal the offer, price, and bonus stack. Anchor the value: "This alone would cost you $X if you hired someone."</div>
+            </div>
+          </div>
+          <div class="webinar-step">
+            <div class="webinar-bar" style="background: var(--phase3-accent);"></div>
+            <div class="webinar-time">50–60 min</div>
+            <div class="webinar-content">
+              <div class="webinar-step-name">Close + Live Q&A</div>
+              <div class="webinar-step-desc">Restate the offer, remind of the deadline/bonus. Address top 3 objections before they're asked (time, money, "is this for me?"). End Q&A by circling back to the CTA one final time.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content Strategy -->
+    <div class="sequence-grid">
+      <div class="sequence-card" style="background: var(--cream);">
+        <div class="sequence-title">Content + Social Strategy</div>
+        <div class="sequence-sub">Choose 2–3 platforms · IG, LinkedIn, or TikTok</div>
+        <ul class="pillar-items">
+          <li class="highlight">Build a content system, not a content hamster wheel</li>
+          <li>Create 3 core pieces/week, repurpose into 5–6 formats</li>
+          <li>15–20 short-form videos: address specific pain points</li>
+          <li>5–7 authority posts: frameworks, counterintuitive insights</li>
+          <li>3–5 personal story posts: failure → lesson → result</li>
+          <li>Every CTA points to webinar registration</li>
+        </ul>
+      </div>
+      <div class="sequence-card" style="background: var(--cream);">
+        <div class="sequence-title">Days 1–30 Checklist</div>
+        <div class="sequence-sub">Must be complete before entering Phase 2</div>
+        <ul class="pillar-items">
+          <li class="highlight">✓ Validated demand (minimum 3 conversations)</li>
+          <li class="highlight">✓ 30–50% of course recorded and uploaded</li>
+          <li class="highlight">✓ Checkout page live with bump + guarantee</li>
+          <li>✓ All AC automations built and tested</li>
+          <li>✓ WebinarJam event created with registration page</li>
+          <li>✓ SMS integrations tested end-to-end</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     PHASE 2
+══════════════════════════════════════════ -->
+<section class="phase-section p2">
+  <div style="max-width: 1100px; margin: 0 auto;">
+    <div class="phase-badge">Days 31–60</div>
+    <div class="section-header">
+      <div class="section-label" style="color: var(--phase2-accent);">Phase Two</div>
+      <h2 class="section-title dark">Audience Build + Pre-Launch</h2>
+      <p class="phase-objective">Drive leads and warm your audience toward the webinar with consistent content and precision email nurture.</p>
+    </div>
+
+    <div class="pillar-grid">
+
+      <div class="pillar-card">
+        <div class="pillar-number">01</div>
+        <div class="pillar-name">Lead Generation</div>
+        <ul class="pillar-items">
+          <li class="highlight">Post content 5–6x/week using your content system (not 6 raw pieces)</li>
+          <li>Primary CTA: register for free webinar</li>
+          <li>Optional: lead magnet (free guide or checklist) as top-of-funnel entry</li>
+          <li>Daily DMs to warm audience members</li>
+          <li>Partner with 1–2 adjacent creators for cross-promotion</li>
+          <li>Repurpose every piece of content to maximize reach per effort</li>
+        </ul>
+      </div>
+
+      <div class="pillar-card">
+        <div class="pillar-number">02</div>
+        <div class="pillar-name">Webinar Promotion</div>
+        <ul class="pillar-items">
+          <li>Promote for 2–3 full weeks before the webinar date</li>
+          <li>Mix: organic social + direct outreach + email pushes</li>
+          <li class="highlight">Problem-focused content in the final week (not just "join my webinar")</li>
+          <li>Run a 3-day countdown on stories / short-form</li>
+          <li>Email your list 3× during final week (don't be shy)</li>
+          <li>Target: 100–300 registrants for your first webinar</li>
+        </ul>
+      </div>
+
+      <div class="pillar-card">
+        <div class="pillar-number">03</div>
+        <div class="pillar-name">Finalize the Course</div>
+        <ul class="pillar-items">
+          <li>Complete 80–100% of all modules</li>
+          <li>Upload and organize all content in Thinkific</li>
+          <li>QA user experience: login, navigation, video playback</li>
+          <li class="highlight">Record a warm welcome video to greet new students</li>
+          <li class="highlight">Build the onboarding sequence: quick win in lesson 1 within 24 hrs</li>
+          <li>Set up student progress milestone emails</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Email Nurture Sequence -->
+    <div class="sequence-grid">
+      <div class="sequence-card" style="background: var(--phase2-light); border-color: var(--phase2-accent);">
+        <div class="sequence-title">Pre-Webinar Email Sequence</div>
+        <div class="sequence-sub">ActiveCampaign · 5–7 emails over 7–10 days</div>
+        <ul class="email-list">
+          <li class="email-item">
+            <div class="email-day">Day 1</div>
+            <div class="email-content">
+              <div class="email-subject">Welcome + What's coming</div>
+              <div class="email-desc">Confirm registration, set expectations, tease what they'll learn. Keep it short and warm.</div>
+            </div>
+          </li>
+          <li class="email-item">
+            <div class="email-day">Day 2</div>
+            <div class="email-content">
+              <div class="email-subject" style="color: var(--phase2);">Problem agitation (send this before your story)</div>
+              <div class="email-desc">Name the exact pain they're in. Make them feel understood. Don't pitch yet — just connect deeply.</div>
+            </div>
+          </li>
+          <li class="email-item">
+            <div class="email-day">Day 4</div>
+            <div class="email-content">
+              <div class="email-subject">My story + the shift that changed everything</div>
+              <div class="email-desc">Share your personal journey from struggle to solution. End with: "I'll show you exactly how on the webinar."</div>
+            </div>
+          </li>
+          <li class="email-item">
+            <div class="email-day">Day 5</div>
+            <div class="email-content">
+              <div class="email-subject">The one thing holding most people back (+ a quick win)</div>
+              <div class="email-desc">Deliver real value — a tip, framework, or insight. Build trust and authority before asking them to show up.</div>
+            </div>
+          </li>
+          <li class="email-item">
+            <div class="email-day">Day 6</div>
+            <div class="email-content">
+              <div class="email-subject">Here's what [Student Name] achieved in 30 days</div>
+              <div class="email-desc">Social proof email. Real result or case study. Let them see themselves in the transformation.</div>
+            </div>
+          </li>
+          <li class="email-item">
+            <div class="email-day">Day 7</div>
+            <div class="email-content">
+              <div class="email-subject">Reminder: We're live [day] at [time] — here's what to expect</div>
+              <div class="email-desc">Final invitation push. Preview the exact 3 things they'll walk away with. Add urgency: limited live spots.</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- SMS Reminders -->
+      <div class="sequence-card" style="background: var(--phase2-light); border-color: var(--phase2-accent);">
+        <div class="sequence-title">Webinar SMS Reminder Flow</div>
+        <div class="sequence-sub">Twilio via ActiveCampaign · Keep it human</div>
+        <ul class="sms-list">
+          <li class="sms-item">
+            <div class="sms-timing">24 hrs out</div>
+            <div class="sms-text">Hey [Name] — we're live tomorrow at [time]. Can't wait to show you [specific result]. Here's the link: [URL]</div>
+          </li>
+          <li class="sms-item">
+            <div class="sms-timing">1 hr out</div>
+            <div class="sms-text">Starting in 1 hour! Grab a coffee and get ready — this is the one you've been waiting for. [URL]</div>
+          </li>
+          <li class="sms-item">
+            <div class="sms-timing">10 min out</div>
+            <div class="sms-text">We go live in 10 minutes 👀 Clicking the link now will get you in before we start. [URL]</div>
+          </li>
+          <li class="sms-item" style="margin-top: 8px;">
+            <div class="sms-timing" style="color: var(--phase2-accent); font-weight:500;">No-show</div>
+            <div class="sms-text">Hey [Name], you missed a good one! The replay is up for the next 48 hours: [URL] — don't let it expire.</div>
+          </li>
+        </ul>
+        <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--rule);">
+          <div style="font-size: 12px; color: var(--warm-gray); font-style: italic;">Keep SMS under 160 characters where possible. First name personalization doubles response rates. Always include the direct link — never make them hunt for it.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     PHASE 3
+══════════════════════════════════════════ -->
+<section class="phase-section p3">
+  <div style="max-width: 1100px; margin: 0 auto;">
+    <div class="phase-badge">Days 61–90</div>
+    <div class="section-header">
+      <div class="section-label" style="color: var(--phase3-accent);">Phase Three</div>
+      <h2 class="section-title dark">Launch + Optimize + Scale</h2>
+      <p class="phase-objective">Convert your audience, analyze what's working, and build the evergreen system that sells while you sleep.</p>
+    </div>
+
+    <div class="pillar-grid">
+
+      <div class="pillar-card">
+        <div class="pillar-number">01</div>
+        <div class="pillar-name">Host Live Webinars</div>
+        <ul class="pillar-items">
+          <li>Run 1–3 live sessions across the launch window</li>
+          <li>Record every session for replay funnel</li>
+          <li class="highlight">Track show-up rate, watch time, and conversion % live</li>
+          <li>Engage the chat — call out names, run polls</li>
+          <li>Leave Q&A open for 10 extra minutes after the offer</li>
+          <li>Follow up with every attendee who didn't buy within 24 hrs</li>
+        </ul>
+      </div>
+
+      <div class="pillar-card">
+        <div class="pillar-number">02</div>
+        <div class="pillar-name">Social Media During Launch</div>
+        <ul class="pillar-items">
+          <li>Post daily: testimonials, behind-the-scenes, objection handling</li>
+          <li class="highlight">Countdown posts create urgency — use stories and pinned posts</li>
+          <li>Share real-time wins from new students immediately</li>
+          <li>Address top 3 objections as individual posts (time, money, doubt)</li>
+          <li>Go live on IG/TikTok 1–2x during the launch window</li>
+          <li>Screenshot and share DMs + replies from engaged followers</li>
+        </ul>
+      </div>
+
+      <div class="pillar-card">
+        <div class="pillar-number">03</div>
+        <div class="pillar-name">Conversion Optimization</div>
+        <ul class="pillar-items">
+          <li>Review landing page conversion rate (target: 20–40%)</li>
+          <li>Review show-up rate (target: 25–35%)</li>
+          <li>Review sales conversion rate (target: 3–10%)</li>
+          <li class="highlight">Test one variable at a time: headline, price, or bonus stack</li>
+          <li class="highlight">Add affiliate or referral program for post-launch scaling</li>
+          <li>Survey non-buyers: "What almost stopped you from joining?"</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Post-Webinar Sequence -->
+    <div class="sequence-grid">
+      <div class="sequence-card" style="background: var(--phase3-light); border-color: var(--phase3-accent);">
+        <div class="sequence-title">Post-Webinar Sales Sequence</div>
+        <div class="sequence-sub">ActiveCampaign · 7–10 days · Cart closes on Day 7 or 10</div>
+        <ul class="email-list">
+          <li class="email-item">
+            <div class="email-day">Day 1</div>
+            <div class="email-content">
+              <div class="email-subject">The replay is live (expires in 48 hours)</div>
+              <div class="email-desc">Send to all attendees and no-shows. Include the direct replay link prominently. Remind them of the offer.</div>
+            </div>
+          </li>
+          <li class="email-item">
+            <div class="email-day">Day 2</div>
+            <div class="email-content">
+              <div class="email-subject">The 3 things you need to remember from yesterday</div>
+              <div class="email-desc">Key takeaway recap — re-teach the 3 core points briefly. Make non-attendees feel they missed something real.</div>
+            </div>
+          </li>
+          <li class="email-item">
+            <div class="email-day" style="color: var(--phase3-accent); font-weight:500;">Day 3</div>
+            <div class="email-content">
+              <div class="email-subject" style="color: var(--phase3);">FAQ: Every question from the webinar, answered (move this up — highest converter)</div>
+              <div class="email-desc">Address the 5–7 most common questions. This email converts because it meets buyers at peak objection. Don't bury it at day 5.</div>
+            </div>
+          </li>
+          <li class="email-item">
+            <div class="email-day">Day 4</div>
+            <div class="email-content">
+              <div class="email-subject">Still on the fence? Read this.</div>
+              <div class="email-desc">Objection handling: address time, money, and self-doubt specifically. Use "I hear you, and here's what I'd say..."</div>
+            </div>
+          </li>
+          <li class="email-item">
+            <div class="email-day">Day 5</div>
+            <div class="email-content">
+              <div class="email-subject">[Student Name] went from [before] to [after] in [timeframe]</div>
+              <div class="email-desc">Your strongest testimonial or case study. Let the result speak. Include a photo if possible.</div>
+            </div>
+          </li>
+          <li class="email-item">
+            <div class="email-day">Day 6</div>
+            <div class="email-content">
+              <div class="email-subject">Doors close in 24 hours — here's what you get</div>
+              <div class="email-desc">Full offer recap: course, bonuses, guarantee, price. Remind them why the price is a fraction of the value.</div>
+            </div>
+          </li>
+          <li class="email-item">
+            <div class="email-day">Day 7</div>
+            <div class="email-content">
+              <div class="email-subject">Final call: this is the last email</div>
+              <div class="email-desc">Short, direct, urgent. "Doors close at midnight. Either you're in or you're not — I'll see you on the inside." Link only.</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Launch SMS + Evergreen -->
+      <div style="display: flex; flex-direction: column; gap: 32px;">
+        <div class="sequence-card" style="background: var(--phase3-light); border-color: var(--phase3-accent);">
+          <div class="sequence-title">Launch Week SMS Sequence</div>
+          <div class="sequence-sub">Twilio via ActiveCampaign</div>
+          <ul class="sms-list">
+            <li class="sms-item">
+              <div class="sms-timing">Day 1</div>
+              <div class="sms-text">Hey [Name]! The replay is live right now — [URL] — only up for 48 hours.</div>
+            </li>
+            <li class="sms-item">
+              <div class="sms-timing">Day 3</div>
+              <div class="sms-text">[Name], quick reminder — doors are still open! [Benefit statement]. Grab your spot: [URL]</div>
+            </li>
+            <li class="sms-item">
+              <div class="sms-timing">Day 7</div>
+              <div class="sms-text">Last chance — [Course Name] closes tonight at midnight. Don't miss it: [URL]</div>
+            </li>
+            <li class="sms-item" style="margin-top: 8px;">
+              <div class="sms-timing" style="color: var(--phase1-accent); font-weight:500;">Post-buy</div>
+              <div class="sms-text">Welcome to [Course Name], [Name]! 🎉 You made a great call. Check your email for login details — I'll see you inside.</div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="sequence-card" style="background: var(--phase3-light); border-color: var(--phase3-accent);">
+          <div class="sequence-title">Evergreen Automation Setup</div>
+          <div class="sequence-sub">WebinarJam + ActiveCampaign</div>
+          <ul class="pillar-items">
+            <li class="highlight">Turn live webinar into automated just-in-time replay in WebinarJam</li>
+            <li>Schedule webinar replays every 30–60 minutes for urgency</li>
+            <li>Connect replay registration to same AC email sequence</li>
+            <li class="highlight">Build affiliate/referral program for student word-of-mouth</li>
+            <li>Layer paid traffic (Meta or YouTube) once conversion rate is confirmed</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Checkout + Onboarding -->
+    <div class="sequence-grid">
+      <div class="sequence-card" style="background: var(--cream);">
+        <div class="sequence-title">Checkout Page Optimization <span class="new-tag">Added</span></div>
+        <div class="sequence-sub">Thinkific checkout page — critical conversion real estate</div>
+        <ul class="pillar-items">
+          <li class="highlight">Add order bump: low-ticket ($47–$97) complementary product</li>
+          <li>Place 2–3 testimonials with photos above the fold</li>
+          <li>Make the guarantee the most prominent element after the price</li>
+          <li>Include a short bulleted "Here's what you're getting" summary</li>
+          <li>Remove all outbound links — no navigation, no distractions</li>
+          <li>Add a "Why buy today?" urgency note (bonus expiry or cohort start)</li>
+        </ul>
+      </div>
+      <div class="sequence-card" style="background: var(--cream);">
+        <div class="sequence-title">Thinkific Onboarding Sequence <span class="new-tag">Added</span></div>
+        <div class="sequence-sub">The difference between refunds and raving testimonials</div>
+        <ul class="pillar-items">
+          <li class="highlight">Welcome video: personal, warm, 2–3 minutes max</li>
+          <li class="highlight">Lesson 1 must deliver a quick win within the first 24 hours</li>
+          <li>Day 3 check-in email: "How are you getting on so far?"</li>
+          <li>Day 7 milestone email: celebrate their first module completion</li>
+          <li>Day 14 testimonial ask: "Can I share your story?" (early wins = early proof)</li>
+          <li>Day 30 completion nudge with bonus for finishing</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     TECH STACK
+══════════════════════════════════════════ -->
+<section class="funnel-section">
+  <div style="max-width: 1100px; margin: 0 auto;">
+    <div class="section-header">
+      <div class="section-label">Infrastructure</div>
+      <h2 class="section-title light">Tech Stack Deep Dive</h2>
+    </div>
+
+    <div class="tech-grid">
+      <div class="tech-card">
+        <div class="tech-logo">Thinkific</div>
+        <div class="tech-name">Course Hosting + Checkout</div>
+        <div class="tech-role">Your course home base and payment processor</div>
+        <ul class="tech-features">
+          <li>Host all modules, videos, and downloads</li>
+          <li>Build and optimize checkout page</li>
+          <li>Add order bumps and upsells</li>
+          <li>Student progress tracking</li>
+          <li>Onboarding drip email sequence</li>
+          <li>Connect to ActiveCampaign via Zapier</li>
+        </ul>
+      </div>
+      <div class="tech-card">
+        <div class="tech-logo">ActiveCampaign</div>
+        <div class="tech-name">Email + Automation</div>
+        <div class="tech-role">Your selling engine — where most revenue is made</div>
+        <ul class="tech-features">
+          <li>Segmentation: Lead / Attended / Purchased / No-show</li>
+          <li>Pre-webinar nurture (5–7 emails)</li>
+          <li>Post-webinar sales sequence (7–10 emails)</li>
+          <li>Post-purchase onboarding flow</li>
+          <li>Evergreen email sequences</li>
+          <li>Trigger SMS via Twilio integration</li>
+        </ul>
+      </div>
+      <div class="tech-card">
+        <div class="tech-logo">WebinarJam</div>
+        <div class="tech-name">Webinar Hosting</div>
+        <div class="tech-role">Your primary conversion event</div>
+        <ul class="tech-features">
+          <li>Live webinar hosting with chat and polls</li>
+          <li>Registration page and thank-you page</li>
+          <li>Backup reminder email sequence</li>
+          <li>Replay hosting for no-shows</li>
+          <li>Just-in-time evergreen webinars</li>
+          <li>Native offer and CTA buttons on screen</li>
+        </ul>
+      </div>
+      <div class="tech-card">
+        <div class="tech-logo">Twilio SMS</div>
+        <div class="tech-name">SMS via ActiveCampaign</div>
+        <div class="tech-role">The channel with 98% open rates</div>
+        <ul class="tech-features">
+          <li>Webinar reminders: 24hr, 1hr, 10min</li>
+          <li>Launch week urgency texts</li>
+          <li>Cart-closing final day message</li>
+          <li>Post-purchase welcome (within 5 minutes)</li>
+          <li>Triggered by AC tags automatically</li>
+          <li>Keep messages under 160 characters</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     METRICS
+══════════════════════════════════════════ -->
+<section class="metrics-section">
+  <div style="max-width: 1100px; margin: 0 auto;">
+    <div class="section-header">
+      <div class="section-label">Benchmarks</div>
+      <h2 class="section-title light">Key Metrics to Track</h2>
+    </div>
+
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-value">20–40%</div>
+        <div class="metric-label">Landing page conversion</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">25–35%</div>
+        <div class="metric-label">Webinar show-up rate</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">3–10%</div>
+        <div class="metric-label">Webinar-to-sale conversion</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">25–45%</div>
+        <div class="metric-label">Email open rates</div>
+      </div>
+    </div>
+
+    <div style="margin-top: 48px; padding: 40px; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.03);">
+      <div style="font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--gold); margin-bottom: 16px;">If your numbers fall short:</div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px;">
+        <div>
+          <div style="font-size: 12px; color: var(--warm-gray); font-family: 'DM Mono', monospace; letter-spacing: 0.1em; margin-bottom: 8px;">LOW SHOW-UP RATE</div>
+          <div style="font-size: 13.5px; color: rgba(247,243,238,0.7); line-height: 1.6;">Improve your reminder sequence. Add SMS. Make the webinar title more specific and outcome-driven.</div>
+        </div>
+        <div>
+          <div style="font-size: 12px; color: var(--warm-gray); font-family: 'DM Mono', monospace; letter-spacing: 0.1em; margin-bottom: 8px;">LOW CONVERSION</div>
+          <div style="font-size: 13.5px; color: rgba(247,243,238,0.7); line-height: 1.6;">Strengthen the offer-to-transition moment. Add more social proof. Reframe the guarantee more boldly.</div>
+        </div>
+        <div>
+          <div style="font-size: 12px; color: var(--warm-gray); font-family: 'DM Mono', monospace; letter-spacing: 0.1em; margin-bottom: 8px;">LOW OPEN RATES</div>
+          <div style="font-size: 13.5px; color: rgba(247,243,238,0.7); line-height: 1.6;">Test new subject lines. Clean your list. Check your domain reputation. Send at different times of day.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     STRATEGY NOTES
+══════════════════════════════════════════ -->
+<section class="strategy-section">
+  <div style="max-width: 1100px; margin: 0 auto;">
+    <div class="section-header">
+      <div class="section-label">What Most People Miss</div>
+      <h2 class="section-title dark">The Strategic Principles</h2>
+    </div>
+
+    <div class="strategy-grid">
+      <div class="strategy-card">
+        <div class="strategy-num">01</div>
+        <div class="strategy-title">Sell before it's perfect</div>
+        <div class="strategy-body">A perfect course that nobody buys is worth nothing. Validate demand in the first 7 days with real conversations. Pre-sell to your first 3–5 students before you've finished recording. Imperfect and sold beats polished and invisible every time.</div>
+      </div>
+      <div class="strategy-card">
+        <div class="strategy-num">02</div>
+        <div class="strategy-title">The webinar is your conversion engine</div>
+        <div class="strategy-body">Every other element of this funnel exists to get people into the room and then follow up afterward. Don't rush the webinar script. Practice your offer transition until it feels completely natural. This is the highest-leverage asset you'll build.</div>
+      </div>
+      <div class="strategy-card">
+        <div class="strategy-num">03</div>
+        <div class="strategy-title">Email does most of the selling</div>
+        <div class="strategy-body">Most people buy on email day 3–7, not on the webinar itself. Spend disproportionate time on your post-webinar sequence. The FAQ email alone consistently outperforms everything else — put it on day 3 when objections are hottest.</div>
+      </div>
+      <div class="strategy-card">
+        <div class="strategy-num">04</div>
+        <div class="strategy-title">Consistency beats virality</div>
+        <div class="strategy-body">One viral video doesn't build a business. 30 days of consistent, problem-focused content builds an audience that trusts you enough to buy. Show up every day for 90 days and you'll have something that compounds. Wait for the perfect post and you'll have nothing.</div>
+      </div>
+      <div class="strategy-card">
+        <div class="strategy-num">05</div>
+        <div class="strategy-title">Onboarding determines testimonials</div>
+        <div class="strategy-body">The experience after purchase determines whether students get results, whether they refund, and whether they tell others. A quick win in the first 24 hours is worth more than a perfect module 6. Happy students are your best marketing for the next cohort.</div>
+      </div>
+      <div class="strategy-card">
+        <div class="strategy-num">06</div>
+        <div class="strategy-title">Iteration is where revenue lives</div>
+        <div class="strategy-body">Your first launch will be imperfect. Your second launch will be better. Your third will be strong. The coaches who succeed treat each launch as data, not a verdict. One variable at a time: first fix the offer, then the traffic, then the follow-up.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     GLOSSARY
+══════════════════════════════════════════ -->
+<section class="glossary-section">
+  <div style="max-width: 1100px; margin: 0 auto;">
+    <div class="section-header">
+      <div class="section-label">Reference</div>
+      <h2 class="section-title light">Terms &amp; Definitions</h2>
+      <p class="glossary-intro">A plain-English guide to the terminology used throughout this plan. Bookmark this page — you'll reference it often.</p>
+    </div>
+
+    <div class="glossary-grid">
+
+      <div class="glossary-item">
+        <div class="glossary-term">Call to Action</div>
+        <span class="glossary-abbr">CTA</span>
+        <p class="glossary-def">Any instruction that tells your audience what to do next. It could be a button, a line of text, or a verbal prompt during a webinar. Examples: "Click here to register," "Grab your spot," or "DM me the word READY." Every piece of content you create should have exactly one clear CTA — multiple CTAs create confusion and reduce action.</p>
+        <div class="glossary-tip"><strong>In this plan:</strong> During pre-launch, your CTA always points to the webinar registration page. During launch week, it points to the checkout page.</div>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">Just-In-Time Webinar</div>
+        <span class="glossary-abbr">JIT Webinar</span>
+        <p class="glossary-def">A pre-recorded webinar that appears to start "just in time" — usually within 15–30 minutes of someone registering, at any hour of the day. The viewer experiences it as a live event even though it was recorded in advance. This is what makes your funnel run 24/7 without you being present.</p>
+        <div class="glossary-tip"><strong>In this plan:</strong> After your live launches, you convert the recording into a JIT webinar inside WebinarJam so leads can convert at any time without you on camera.</div>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">Evergreen Automation</div>
+        <span class="glossary-abbr">Always-on funnel</span>
+        <p class="glossary-def">A marketing system that runs continuously in the background without requiring your active involvement. Once built, it automatically sends emails, triggers SMS reminders, hosts webinars, and processes sales — every day, regardless of whether you're working. "Evergreen" means it doesn't expire like a live launch does.</p>
+        <div class="glossary-tip"><strong>In this plan:</strong> This is the end goal of Days 61–90. You go from manual live launches to an automated machine that generates revenue passively.</div>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">Show-Up Rate</div>
+        <span class="glossary-abbr">Attendance metric</span>
+        <p class="glossary-def">The percentage of people who registered for your webinar who actually attend it live. If 200 people register and 60 show up, your show-up rate is 30%. This number is critical because people who attend live convert at a dramatically higher rate than those who only watch the replay. Industry average is 25–35% for warm audiences.</p>
+        <div class="glossary-tip"><strong>In this plan:</strong> Your SMS reminder sequence — 24hr, 1hr, and 10-minute texts — exists specifically to raise this number. Every percentage point matters.</div>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">Sales Conversion Rate</div>
+        <span class="glossary-abbr">CVR · Close rate</span>
+        <p class="glossary-def">The percentage of webinar attendees who purchase your course. If 60 people watch the webinar and 4 buy, your conversion rate is 6.7%. A healthy webinar conversion rate is 3–10% depending on price point, audience warmth, and how strong your offer is. This is the single most important number in your entire business.</p>
+        <div class="glossary-tip"><strong>In this plan:</strong> If your rate is below 3%, focus on strengthening the offer-to-transition moment in your webinar script and your post-webinar email sequence.</div>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">Cart Close</div>
+        <span class="glossary-abbr">Deadline · Doors closing</span>
+        <p class="glossary-def">The moment when enrollment officially ends and the course is no longer available to purchase (or the bonus stack expires). Cart close is not just a tactic — it's a genuine commitment to your audience that creates real urgency. Without a deadline, most people who are "thinking about it" never buy. A firm cart close is one of the most powerful conversion levers in a launch.</p>
+        <div class="glossary-tip"><strong>In this plan:</strong> Your cart typically closes 7–10 days after the webinar. Your final day email and SMS are the highest-converting messages in the entire sequence.</div>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">Quality Assurance</div>
+        <span class="glossary-abbr">QA · Testing</span>
+        <p class="glossary-def">The process of reviewing and testing every part of your system before it goes live to real customers. This includes clicking through your course as a student would, testing that emails send correctly, confirming checkout processes a payment, and verifying that SMS messages arrive at the right time. Skipping QA is the most common cause of embarrassing technical failures during a live launch.</p>
+        <div class="glossary-tip"><strong>In this plan:</strong> Run a full QA pass at the end of Days 31–60, before your first live webinar. Create a test account in Thinkific and go through the entire student experience yourself.</div>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">Live Q&amp;A Bonus Call</div>
+        <span class="glossary-abbr">Office hours · Hot seat call</span>
+        <p class="glossary-def">A scheduled video call (typically on Zoom) where enrolled students can ask you questions directly and get personalized guidance. Including 2–3 live Q&amp;A calls as a bonus dramatically increases the perceived value of your course because it signals ongoing access to you — something students pay a premium for. It also gives you direct insight into where students are getting stuck, which improves the course over time.</p>
+        <div class="glossary-tip"><strong>In this plan:</strong> Include 2–3 live Q&amp;A calls in your bonus stack during the offer phase. Schedule them 2, 4, and 6 weeks after cohort start so they're spread across the learning journey.</div>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">Order Bump</div>
+        <span class="glossary-abbr">Checkout upsell · Add-on offer</span>
+        <p class="glossary-def">A small, complementary product offered directly on the checkout page — typically a checkbox the buyer ticks before completing their purchase. Because the customer already has their credit card out and is in a buying mindset, order bumps convert at an unusually high rate (20–40%). The bump should be low-ticket ($47–$97), quick to consume, and clearly enhance the main course purchase.</p>
+        <div class="glossary-tip"><strong>In this plan:</strong> Add an order bump to your Thinkific checkout page. Good examples: a done-for-you template pack, a one-page quick-start guide, or a recorded workshop that complements module 1.</div>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">Lead Magnet</div>
+        <span class="glossary-abbr">Freebie · Opt-in offer · Content upgrade</span>
+        <p class="glossary-def">A free resource you offer in exchange for someone's email address. It could be a checklist, PDF guide, template, short video training, or quiz. Its only job is to attract the right people into your email list by solving one specific, immediate problem they have — the same problem your course goes deeper on. A good lead magnet pre-qualifies your audience: people who want the freebie are likely to want the course.</p>
+        <div class="glossary-tip"><strong>In this plan:</strong> An optional top-of-funnel entry point during pre-launch. If you use one, make sure it naturally leads to your webinar registration as the next step.</div>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">Automation Trigger</div>
+        <span class="glossary-abbr">Workflow trigger · Automation entry point</span>
+        <p class="glossary-def">The specific action or event that starts an automated sequence inside ActiveCampaign. Common triggers include: someone submits a form, a tag is applied to a contact, a purchase is made, or a link is clicked. Think of a trigger as the "if this, then that" rule — if someone registers for the webinar, then automatically send the confirmation email and start the reminder sequence.</p>
+        <div class="glossary-tip"><strong>In this plan:</strong> Your key triggers are: webinar registration (starts pre-webinar sequence), webinar attendance (starts sales sequence), and Thinkific purchase (starts onboarding sequence).</div>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">Segmentation</div>
+        <span class="glossary-abbr">List segmentation · Tagging</span>
+        <p class="glossary-def">The practice of dividing your email list into distinct groups based on behavior, interests, or status — so you can send the right message to the right person at the right time. In ActiveCampaign, this is done through tags and lists. Someone tagged "Attended Webinar" should receive different follow-up emails than someone tagged "No-Show," even though both registered.</p>
+        <div class="glossary-tip"><strong>In this plan:</strong> Your core segments are Lead, Registered, Attended, No-Show, and Purchased. Never email all of these groups the same message — it hurts deliverability and conversions.</div>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">Bonus Stack</div>
+        <span class="glossary-abbr">Value stack · Offer stack</span>
+        <p class="glossary-def">The collection of additional resources, bonuses, and extras bundled with your core course to increase the overall perceived value of the offer. A strong bonus stack directly addresses the objections buyers have — if they worry "I don't have time," a bonus on time management tackles that fear head-on. Each bonus should have a clear, specific value that you state explicitly ("Bonus #1: normally $197, yours free today").</p>
+        <div class="glossary-tip"><strong>In this plan:</strong> Build your bonus stack before the webinar. Ideal bonuses: live Q&A calls, done-for-you templates, a private community, or a complementary mini-course.</div>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">Open Rate</div>
+        <span class="glossary-abbr">Email open rate</span>
+        <p class="glossary-def">The percentage of people on your email list who open a given email. If you send to 500 people and 175 open it, your open rate is 35%. Open rate is primarily influenced by your subject line, the sender name, and your list's overall trust in you. It tells you whether people are interested enough to look — but it doesn't tell you whether they took action. A healthy open rate for a warm course audience is 25–45%.</p>
+        <div class="glossary-tip"><strong>In this plan:</strong> If open rates drop below 20%, test new subject lines, clean inactive subscribers off your list, and check that your emails aren't landing in spam folders.</div>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">Nurture Sequence</div>
+        <span class="glossary-abbr">Drip sequence · Email sequence</span>
+        <p class="glossary-def">A series of pre-written emails sent automatically over time to guide a new subscriber from stranger to buyer. Each email serves a specific purpose — building trust, demonstrating expertise, handling objections, or making an offer. "Nurture" means you're warming the relationship over days or weeks before asking for a sale, rather than pitching immediately. This is fundamentally different from a one-off broadcast email.</p>
+        <div class="glossary-tip"><strong>In this plan:</strong> You have two main sequences: a pre-webinar nurture (5–7 emails warming leads toward attendance) and a post-webinar sales sequence (7–10 emails converting attendees into buyers).</div>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">Objection Handling</div>
+        <span class="glossary-abbr">Reframe · Addressing resistance</span>
+        <p class="glossary-def">The practice of proactively addressing the doubts, fears, and hesitations that prevent a potential buyer from purchasing — before they even voice them. The three most universal objections in online course sales are: "I don't have time," "I can't afford it," and "I'm not sure this will work for me." Addressing these directly and honestly in your webinar, emails, and social content removes the friction standing between a prospect and a purchase.</p>
+        <div class="glossary-tip"><strong>In this plan:</strong> Dedicate one post-webinar email entirely to objection handling (Day 4). Address each objection with empathy first, then logic, then social proof.</div>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">Social Proof</div>
+        <span class="glossary-abbr">Testimonials · Case studies · Reviews</span>
+        <p class="glossary-def">Evidence from real people that your course delivers on its promise. It includes written testimonials, video reviews, screenshots of results, before-and-after stories, and student case studies. Social proof is one of the most powerful conversion tools available because people trust other people's experiences more than they trust marketing copy. Even one strong, specific testimonial can meaningfully lift your conversion rate.</p>
+        <div class="glossary-tip"><strong>In this plan:</strong> Request testimonials from beta students or pre-sell buyers at the end of Days 1–30. Use them on your sales page, in your webinar, and in your post-webinar email sequence.</div>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">Landing Page</div>
+        <span class="glossary-abbr">Opt-in page · Registration page · Squeeze page</span>
+        <p class="glossary-def">A single, focused web page with one specific goal and one CTA — no navigation menu, no links out, no distractions. For a webinar funnel, the landing page exists solely to collect registrations. Everything on the page — the headline, bullet points, and button — should answer the visitor's question: "What will I get, and is it worth giving you my email?" A well-optimized landing page converts 20–40% of visitors into registrants.</p>
+        <div class="glossary-tip"><strong>In this plan:</strong> Your landing page drives traffic to your WebinarJam registration. Keep it focused: one headline, three to five benefit bullets, and a single registration button.</div>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">Cohort</div>
+        <span class="glossary-abbr">Cohort-based launch · Live round</span>
+        <p class="glossary-def">A group of students who start a course together on the same date and progress through the material as a community. Cohort-based courses typically have scheduled live calls, shared milestones, and a defined start and end date. The time-limited nature of a cohort creates natural urgency for buyers ("the next round starts March 1") and tends to produce better student results because of the shared accountability.</p>
+        <div class="glossary-tip"><strong>In this plan:</strong> Using a cohort start date as your urgency lever ("enroll by Friday to join the April cohort") is one of the most authentic and effective ways to close your cart without manufactured pressure.</div>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">Replay Funnel</div>
+        <span class="glossary-abbr">Webinar replay · On-demand recording</span>
+        <p class="glossary-def">The system for sending no-show registrants and post-webinar visitors to a recording of the live webinar, along with a follow-up email sequence to convert them. Replay viewers convert at roughly half the rate of live attendees — which is still significant revenue. The replay is typically available for 24–72 hours to maintain urgency. After your live launch, the replay becomes the foundation of your evergreen JIT funnel.</p>
+        <div class="glossary-tip"><strong>In this plan:</strong> Send the replay link on Day 1 of your post-webinar sequence to both live attendees and no-shows. Set a clear expiry time and communicate it in the email subject line.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer-brand">30 · 60 · 90 Launch Plan</div>
+  <div class="footer-note">Confidential · Prepared for client use</div>
+</footer>
+
+</body>
+</html>
